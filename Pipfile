@@ -9,6 +9,7 @@ autopep8 = "*"
 pylint = "*"
 pillow = "*"
 django-environ = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
