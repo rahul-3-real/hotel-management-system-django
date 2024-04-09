@@ -1,9 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
-
 
 # Index Page
-def index(request):
+def index_view(request):
     template_name = "./base/index.html"
-    return render(request, template_name)
+    context = {}
+    return render(request, template_name, context)
