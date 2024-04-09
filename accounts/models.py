@@ -31,6 +31,8 @@ class Account(AbstractUser):
         null=True, blank=True, verbose_name="Alternate Email Address"
     )
     address = models.TextField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.username
@@ -58,3 +60,26 @@ class Guest(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+# Job Position Model
+class JobPosition(models.Model):
+    position = models.CharField(max_length=255, unique=True)
+    description = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.position
+
+
+# Salary Model
+class Salary(models.Model):
+    staff = models.ForeignKey(Staff, null=True, blank=True, on_delete=models.SET_NULL)
+    job_position = models.ForeignKey(
+        JobPosition, null=True, blank=True, on_delete=models.SET_NULL
+    )
+    base_salary = models.CharField(max_length=255)
+    deduction = models.CharField(max_length=255)
+    total_salary = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.staff} - {self.job_position}"
