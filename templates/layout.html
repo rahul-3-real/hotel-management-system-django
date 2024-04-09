@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metas -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Metas Block -->
+    {% block metas %} {% endblock metas %}
+
+    <!-- Links -->
+    {% include './includes/links.html' %}
+
+    <!-- Links Block -->
+    {% block links %} {% endblock links %}
+  </head>
+  <body>
+    <!-- Header -->
+    {% include './includes/header.html' %}
+
+    <!-- Content Block -->
+    {% block content %} {% endblock content %}
+
+    <!-- Scripts -->
+    {% include './includes/scripts.html' %}
+
+    <!-- Scripts Block -->
+    {% block scripts %} {% endblock scripts %}
+  </body>
+</html>

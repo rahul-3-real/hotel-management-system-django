@@ -1,0 +1,36 @@
+{% load static %}
+
+<header class="header">
+  <div class="container-fluid px-lg-5">
+    <nav class="nav">
+      <a href="{% url 'base:index' %}" class="logo">
+        <img src="{% static './images/logo-light.png' %}" alt="" />
+      </a>
+      <menu>
+        <li>
+          <a href="{% url 'base:index' %}">About Us</a>
+        </li>
+        <li>
+          <a href="{% url 'base:index' %}">Packages</a>
+        </li>
+        <li>
+          <a href="{% url 'base:index' %}">Contact Us</a>
+        </li>
+      </menu>
+      <ul>
+        <li>
+          <a href="{% url 'base:index' %}">Login</a>
+        </li>
+        <li>
+          <a href="{% url 'base:index' %}">Book Your Stay</a>
+        </li>
+        <li>
+          <button id="toggle-nav">
+            <span></span>
+            <span></span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
