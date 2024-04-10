@@ -1,0 +1,64 @@
+<!-- Copy the template -->
+
+<!-- Extend Layout -->
+{% extends '../layout.html' %}
+
+<!-- Load Static -->
+{% load static %}
+
+<!-- Crispy Form -->
+{% load crispy_forms_tags %}
+
+<!-- Metas -->
+{% block metas %}
+<title>Register | InnSight - Elevating Hospitality, One Stay.</title>
+<meta
+  name="description"
+  content="Register | InnSight - Elevating Hospitality, One Stay."
+/>
+<meta
+  name="keywords"
+  content="Register | InnSight - Elevating Hospitality, One Stay."
+/>
+
+<meta
+  property="og:title"
+  content="Register | InnSight - Elevating Hospitality, One Stay."
+/>
+<meta
+  property="og:description"
+  content="Register | InnSight - Elevating Hospitality, One Stay."
+/>
+{% endblock metas %}
+
+<!-- Links -->
+{% block links %} {% endblock links %}
+
+<!-- Content -->
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            <!-- Fields -->
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Register</button>
+            <p class="mt-4">
+              Already have an account?
+              <a href="{% url 'accounts:login' %}">Login</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %} {% endblock scripts %}

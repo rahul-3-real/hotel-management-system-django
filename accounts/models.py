@@ -35,7 +35,7 @@ class Account(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.username
+        return f"{self.email} - {self.username}"
 
 
 # Admin Model

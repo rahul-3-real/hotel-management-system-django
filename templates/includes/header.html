@@ -1,36 +1,62 @@
 {% load static %}
 
-<header class="header">
-  <div class="container-fluid px-lg-5">
-    <nav class="nav">
-      <a href="{% url 'base:index' %}" class="logo">
-        <img src="{% static './images/logo-light.png' %}" alt="" />
-      </a>
-      <menu>
-        <li>
-          <a href="{% url 'base:index' %}">About Us</a>
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'base:index' %}">
+      <h5>InnSight</h5>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbar"
+      aria-controls="navbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'base:index' %}">Home</a>
         </li>
-        <li>
-          <a href="{% url 'base:index' %}">Packages</a>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'base:index' %}">About Us</a>
         </li>
-        <li>
-          <a href="{% url 'base:index' %}">Contact Us</a>
-        </li>
-      </menu>
-      <ul>
-        <li>
-          <a href="{% url 'base:index' %}">Login</a>
-        </li>
-        <li>
-          <a href="{% url 'base:index' %}">Book Your Stay</a>
-        </li>
-        <li>
-          <button id="toggle-nav">
-            <span></span>
-            <span></span>
-          </button>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle active"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Account
+          </a>
+          <ul class="dropdown-menu">
+            {% if request.is_authenticated %}
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+              <a class="dropdown-item" href="{% url 'accounts:logout' %}">
+                Logout
+              </a>
+            </li>
+            {% else %}
+            <li>
+              <a class="dropdown-item" href="{% url 'accounts:register' %}">
+                Register
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'accounts:login' %}">
+                Login
+              </a>
+            </li>
+            {% endif %}
+          </ul>
         </li>
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
+</nav>

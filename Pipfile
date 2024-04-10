@@ -10,6 +10,8 @@ pylint = "*"
 pillow = "*"
 django-environ = "*"
 psycopg2 = "*"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
 
 [dev-packages]
 

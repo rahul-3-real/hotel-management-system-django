@@ -20,8 +20,16 @@
     <!-- Header -->
     {% include './includes/header.html' %}
 
-    <!-- Content Block -->
-    {% block content %} {% endblock content %}
+    <section class="py-5">
+      <!-- Alerts -->
+      {% include './includes/alert.html' %}
+
+      <!-- Content Block -->
+      {% block content %} {% endblock content %}
+    </section>
+
+    <!-- Footer -->
+    {% include './includes/footer.html' %}
 
     <!-- Scripts -->
     {% include './includes/scripts.html' %}
