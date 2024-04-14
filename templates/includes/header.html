@@ -35,7 +35,7 @@
             Account
           </a>
           <ul class="dropdown-menu">
-            {% if request.is_authenticated %}
+            {% if request.user.is_authenticated %}
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li>
               <a class="dropdown-item" href="{% url 'accounts:logout' %}">

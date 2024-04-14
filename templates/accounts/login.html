@@ -1,10 +1,11 @@
-<!-- Copy the template -->
-
 <!-- Extend Layout -->
 {% extends '../layout.html' %}
 
 <!-- Load Static -->
 {% load static %}
+
+<!-- Crispy Form -->
+{% load crispy_forms_tags %}
 
 <!-- Metas -->
 {% block metas %}
@@ -32,7 +33,30 @@
 {% block links %} {% endblock links %}
 
 <!-- Content -->
-{% block content %} {% endblock content %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            <!-- Fields -->
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Login</button>
+            <p class="mt-4">
+              Don't have an account?
+              <a href="{% url 'accounts:register' %}">Register</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
 
 <!-- Scripts -->
 {% block scripts %} {% endblock scripts %}
