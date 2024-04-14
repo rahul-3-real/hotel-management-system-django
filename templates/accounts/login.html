@@ -46,10 +46,6 @@
             {{ form|crispy }}
             <button type="submit" class="btn btn-primary">Login</button>
             <p class="mt-4">
-              Forgot Password?
-              <a href="{% url 'accounts:password-reset' %}">Reset</a>
-            </p>
-            <p class="mt-2">
               Don't have an account?
               <a href="{% url 'accounts:register' %}">Register</a>
             </p>

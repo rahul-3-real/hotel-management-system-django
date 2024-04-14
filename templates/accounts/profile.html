@@ -1,0 +1,119 @@
+<!-- Extend Layout -->
+{% extends '../layout.html' %}
+
+<!-- Load Static -->
+{% load static %}
+
+<!-- Crispy Form -->
+{% load crispy_forms_tags %}
+
+<!-- Metas -->
+{% block metas %}
+<title>
+  {{ user.name }}'s Profile | InnSight - Elevating Hospitality, One Stay.
+</title>
+<meta
+  name="description"
+  content="{{ user.name }}'s Profile | InnSight - Elevating Hospitality, One Stay."
+/>
+<meta
+  name="keywords"
+  content="{{ user.name }}'s Profile | InnSight - Elevating Hospitality, One Stay."
+/>
+
+<meta
+  property="og:title"
+  content="{{ user.name }}'s Profile | InnSight - Elevating Hospitality, One Stay."
+/>
+<meta
+  property="og:description"
+  content="{{ user.name }}'s Profile | InnSight - Elevating Hospitality, One Stay."
+/>
+{% endblock metas %}
+
+<!-- Links -->
+{% block links %} {% endblock links %}
+
+<!-- Content -->
+{% block content %}
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h3>Welcome {{ user.name }}</h3>
+      <table class="table table-bordered">
+        <tr>
+          <th>Email</th>
+          <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td>{{ user.name }}</td>
+        </tr>
+        <tr>
+          <th>User Type</th>
+          <td>{{ user.type }}</td>
+        </tr>
+        <tr>
+          <th>Date Of Birth</th>
+          <td>{{ user.dob }}</td>
+        </tr>
+        <tr>
+          <th>Gender</th>
+          <td>
+            {% if user.gender %}
+            <!-- Value -->
+            {{ user.gender }}
+            <!-- Value -->
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>Phone Number</th>
+          <td>
+            {% if user.phone %}
+            <!-- Value -->
+            {{ user.phone }}
+            <!-- Value -->
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>Alternate Phone Number</th>
+          <td>
+            {% if user.phone_alt %}
+            <!-- Value -->
+            {{ user.phone_alt }}
+            <!-- Value -->
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>Alternate Email</th>
+          <td>
+            {% if user.email_alt %}
+            <!-- Value -->
+            {{ user.email_alt }}
+            <!-- Value -->
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td>
+            {% if user.address %}
+            <!-- Value -->
+            {{ user.address }}
+            <!-- Value -->
+            {% endif %}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Scripts -->
+{% block scripts %} {% endblock scripts %}

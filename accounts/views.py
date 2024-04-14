@@ -50,3 +50,11 @@ def logout_view(request):
     logout(request)
     messages.success(request, "Logged out successfully!")
     return redirect("accounts:login")
+
+
+# Profile View
+def profile_view(request):
+    user = request.user
+    template_name = "./accounts/profile.html"
+    context = {"user": user}
+    return render(request, template_name, context)
