@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import RegistrationForm, LoginForm
+from .decorators import is_authenticated, must_not_be_authenticated
 
 
 # Register View
+@must_not_be_authenticated
 def register_view(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)
@@ -21,6 +23,7 @@ def register_view(request):
 
 
 # Login View
+@must_not_be_authenticated
 def login_view(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
